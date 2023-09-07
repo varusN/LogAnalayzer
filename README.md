@@ -23,10 +23,9 @@ optional keys:
 Default config if conf file is not set:
 
     [LOG_PARSER]
-    "REPORT_SIZE": 1000, # save the number of records by total request time in report
-    "REPORT_DIR": "./reports", # path to reports
-    "LOG_DIR": "./log", # path to nginx logs
-    "APP_LOG": None # path to log file, if 'None' all logs will be written in stdout
-
+    REPORT_SIZE=1000      # save the number of records by total request time in report
+    REPORT_DIR=./reports, # path to reports
+    LOG_DIR=./log,        # path to nginx logs
+    APP_LOG=              # path to log file, if _empty_ all logs will be written in stdout
 
 
