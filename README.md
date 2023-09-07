@@ -10,6 +10,7 @@ Script to parse nginx logs and generate report beased on template(report.html).
                               '"$http_user_agent" "$http_x_forwarded_for" "$http_X_REQUEST_ID" "$http_X_RB_USER" '  
                               '$request_time';
 
+- conf.ini template can be used to create config file
   
 # How to run
 
