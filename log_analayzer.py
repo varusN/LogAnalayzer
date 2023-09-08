@@ -36,7 +36,7 @@ start_time = time.time()
 exit_flag = False
 
 
-class UrlColection:
+class UrlColection():
     # url: str
     # requests_time: list
     def __init__(self, url, request_time):
