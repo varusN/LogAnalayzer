@@ -1,20 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import sys
-import time
-import re
-import gzip
 import argparse
 import configparser
+import gzip
 import logging
+import os
+import re
 import statistics as s
+import sys
+import time
 from string import Template
-
-
-
-
 
 config = {
     "REPORT_SIZE": 1000,
@@ -36,7 +32,7 @@ start_time = time.time()
 exit_flag = False
 
 
-class UrlColection():
+class UrlColection:
     # url: str
     # requests_time: list
     def __init__(self, url, request_time):
@@ -80,7 +76,10 @@ def main():
         )
     logger = init_logger(app_log)
     logger.info(
-        f"Start with config: REPORT_SIZE: {report_size}, REPORT_DIR: {report_dir}, LOG_DIR: {log_dir}, APP_LOG: {app_log}"
+        f"Start with config: REPORT_SIZE: {report_size}, \
+            REPORT_DIR: {report_dir}, \
+            LOG_DIR: {log_dir}, \
+            APP_LOG: {app_log}"
     )
     if exit_flag:
         sys.exit()
