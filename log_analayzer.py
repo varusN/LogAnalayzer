@@ -157,7 +157,7 @@ def get_log_file(logger, log_dir, report_dir):
         if log_date:
             files[file] = int(log_date[0])
     if len(log_date) == 0:
-        logger.error(f"There are no nginx logs, exit")
+        logger.error("There are no nginx logs, exit")
         exit_flag = True
         return exit_flag, None, None
     file_date = max(files.values())
@@ -240,7 +240,7 @@ def check_report(logger, report_dir, log_date):
     for file in os.listdir(report_dir):
         data = re.findall(f"report-{report_date}.html", file)
         if data:
-            logger.error(f"There are no new nginx log files to work on, exit")
+            logger.error("There are no new nginx log files to work on, exit")
             exit_flag = True, None
     return exit_flag, report_date
 
@@ -266,15 +266,16 @@ def build_report(logger, report_dir, stat, report_date, log_records):
         with open("report.html") as f:
             template = f.read()
     except OSError:
-        logger.exception(f"Error while open report template(report.html)")
+        logger.exception("Error while open report template(report.html)")
     result = Template(template).safe_substitute(table_json=stat)
     try:
         with open(os.path.join(report_dir, f"report-{report_date}.html"), "w+") as f:
             f.write(result)
     except OSError:
-        logger.exception(f"Error while saving new report")
+        logger.exception("Error while saving new report")
     logger.info(
-        f"New report-{report_date}.html created for {round(time.time() - start_time, 3)} seconds. Parsed records: {parsed_records}, overal log recors: {log_records}."
+        f"New report-{report_date}.html created for {round(time.time() - start_time, 3)}\
+         seconds. Parsed records: {parsed_records}, overal log recors: {log_records}."
     )
 
 
